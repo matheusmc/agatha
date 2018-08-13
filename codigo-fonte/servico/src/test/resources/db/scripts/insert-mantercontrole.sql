@@ -1,0 +1,2 @@
+INSERT INTO gestaoriscos.tb_controle VALUES ( nextval('sk_controle'),  'Descricao Controle' , true , false , 'Descrição Basis');
+INSERT INTO gestaoriscos.tb_controle VALUES ( nextval('sk_controle'),  'Descricao Controle 2' , false , false , 'Descrição Basis 2');

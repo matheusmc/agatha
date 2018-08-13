@@ -1,0 +1,1 @@
+DELETE FROM gestaoriscos.tb_categoria WHERE ds_categoria = 'Nova Categoria';

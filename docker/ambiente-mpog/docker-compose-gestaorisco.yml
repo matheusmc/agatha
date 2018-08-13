@@ -1,0 +1,22 @@
+version: '2'
+services:
+  sgr-servico:
+    image: hub.docker.planejamento.gov.br/sgr-servico:${TAG_DOCKER}
+    stdin_open: true
+    links:
+    - sgr-postgresql
+    tty: true
+#    labels:
+#      io.rancher.container.pull_image: always
+  sgr-cliente:
+    image: hub.docker.planejamento.gov.br/sgr-cliente:${TAG_DOCKER} 
+    environment:
+      ENDERECO_API: restSGR:8080
+    #ports:
+    #  - "80:80"
+    expose:
+      - 80
+    stdin_open: true
+    tty: true
+    links:
+    - sgr-servico:restSGR

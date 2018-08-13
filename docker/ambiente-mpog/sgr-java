@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# chkconfig: 35 90 12
+# description: Docker Compose Functions
+#
+# Get function from functions library
+#. /etc/init.d/functions
+# Start the containers
+HOME_COMPOSE=/home/desenv/sgr-java
+
+start() {
+        ### Starting Docker Compose
+        echo -e "Starting Docker Compose:"
+        echo
+        cd $HOME_COMPOSE
+        /usr/bin/docker-compose -f docker-compose-sgr.yml -f docker-compose-gestaorisco.yml up -d
+
+        ### Create the lock file ###
+        touch /var/lock/sgr-java
+        echo
+}
+
+stop() {
+               
+        ### Stoping Docker Compose
+        echo
+        echo -n "Stopping Docker Compose:"
+        echo
+        /usr/bin/docker-compose -f docker-compose-sgr.yml -f docker-compose-gestaorisco.yml stop
+
+        ### Now, delete the lock file ###
+        rm -f /var/lock/sgr-java
+        echo
+}
+
+status(){
+        echo -e "Executing Containers"      
+        /usr/bin/docker ps
+        echo
+}
+
+### main logic ###
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  status)
+        status
+        ;;
+  restart|reload|condrestart)
+        stop
+        start
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart|reload|status}"
+        exit 1
+esac
+exit 0

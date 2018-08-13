@@ -1,0 +1,2 @@
+INSERT INTO gestaoriscos.tb_permissao (id_permissao, id_usuario, id_perfil, ic_excluido) VALUES (-99, 1, 5, false);
+INSERT INTO gestaoriscos.tb_permissao (id_permissao, id_usuario, id_perfil, ic_excluido) VALUES (-98, 20, 6, false);

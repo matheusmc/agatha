@@ -1,0 +1,24 @@
+version: '2'
+services:
+  sgr-postgresql:
+    image: sgr/postgresql
+    container_name: sgr-postgresql
+    privileged: true
+    ports:
+      - "5432:5432"
+    restart: always
+    build: postgresql
+    volumes:
+      - /home/desenv/sgr-java/postgresql/data:/var/lib/postgresql/data
+
+  sgr-reverse-proxy:
+    image: sgr/reverse-proxy
+    container_name: sgr-reverse-proxy
+    restart: always
+    external_links:
+      - sgr-cliente
+    ports:
+      - "80:80"
+    build: reverse-proxy
+    environment:
+      ENDERECO_SGR: sgr-cliente

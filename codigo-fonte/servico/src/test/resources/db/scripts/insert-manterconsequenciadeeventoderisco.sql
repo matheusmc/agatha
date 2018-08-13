@@ -1,0 +1,2 @@
+INSERT INTO gestaoriscos.tb_consequencia VALUES ( nextval('sk_consequencia'),  'Descricao Consequencia' , true , false , 'Descrição Basis');
+INSERT INTO gestaoriscos.tb_consequencia VALUES ( nextval('sk_consequencia'),  'Descricao Consequencia 2' , false , false , 'Descrição Basis 2');

@@ -1,0 +1,1 @@
+INSERT INTO gestaoriscos.tb_natureza (id_natureza, ds_natureza, ic_ativo, ic_excluido, ds_search) VALUES (-99, 'Teste Ativo', true, false, 'Teste Ativo');
