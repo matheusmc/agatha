@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+  mpog-gestaoriscos-bd:
+    container_name: mpog-gestaoriscos-bd
+    build: postgresql
+    ports:
+      - "50002:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  mpog-gestaoriscos-backend:
+    container_name: mpog-gestaoriscos-backend
+    image: mpog-gestaoriscos-backend
+    build: spring
+    links:
+      - mpog-gestaoriscos-bd
+    volumes:
+      - ./spring/config:/config
+
+  mpog-gestaoriscos-frontend:
+    container_name: mpog-gestaoriscos-frontend
+    image: mpog-gestaoriscos-frontend
+    build: nginx
+    links:
+      - mpog-gestaoriscos-backend
+    ports:
+      - "80:80"
+    environment:
+      - ENDERECO_API=mpog-gestaoriscos-backend:8080​
