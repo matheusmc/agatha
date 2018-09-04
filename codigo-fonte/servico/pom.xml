@@ -14,7 +14,7 @@
     <repositories>
         <repository>
             <id>element.basis</id>
-            <url>http://element.basis.com.br/content/groups/public/</url>
+            <url>http://element.basis.com.br/repository/releases/</url>
         </repository>
     </repositories>
 
@@ -40,7 +40,7 @@
         <hibernate-jpamodelgen.version>4.3.4.Final</hibernate-jpamodelgen.version>
         <mapstruct-processor.version>1.1.0.Final</mapstruct-processor.version>
         <powermock-module-junit4.version>1.6.4</powermock-module-junit4.version>
-        <not-yet-commons-ssl.version>0.3.17</not-yet-commons-ssl.version>
+        <not-yet-commons-ssl.version>0.3.11</not-yet-commons-ssl.version>
         <commons-io.version>2.4</commons-io.version>
         <jsoup.version>1.10.1</jsoup.version>
         <junit.version>4.12</junit.version>
